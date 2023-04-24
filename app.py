@@ -33,7 +33,6 @@ def default(url_path: str):
     # le fichier n'existe pas: erreur 404
     abort(404)
 
-
 # En cas d'erreur 404 ou 500, utiliser les fichiers
 #   ./templates/error/404.html
 #   ./templates/error/500.html
