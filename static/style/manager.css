@@ -1,0 +1,36 @@
+
+.manager-order-list {
+    display: flex;
+    padding: .5rem;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    overflow-x: auto;
+    list-style: none;
+}
+.manager-item-list {
+    display: flex;
+    padding: .5rem;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    overflow-x: auto;
+    list-style: none;
+}
+.manager-ingredient-list {
+    display: flex;
+    padding: .5rem;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    overflow-x: auto;
+    list-style: none;
+}
+.manager-order {
+    width: 15rem;
+    min-width: 15rem;
+    height: 7rem;
+    min-height: 7rem;
+    text-align: center;
+}
+.manager-item__img {
+    width: 2rem;
+    height: 2rem;
+}
