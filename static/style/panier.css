@@ -1,0 +1,62 @@
+body {
+    margin: 10%;
+    text-align: center;
+    background-color: #fefefe;
+    list-style: none;
+    align-items: center;
+} 
+
+ul, li {
+  list-style: none;
+  display: inline;
+  align-items: center;
+}
+
+main {
+  display: flex;
+}
+
+.produits a {
+  margin-top: 10px;
+  text-align : center;
+}
+
+.produits {
+  background-color: #d8afe2;
+  margin: 0px 10% 0px 10%;
+  padding: 10px;
+  display: block;
+  flex-wrap: wrap;
+}
+
+.panier-produits {
+  background-color: #e1c8e8;
+  margin: 20px 10% 10px 10%;
+  padding: 10px 0 30px 0;
+}
+  
+ul h2 {
+  margin: 20px;
+}
+  
+li img {
+    margin-right: 10px;
+}
+   
+li div h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.prix {
+  background-color: aqua;
+  margin: 20px 40% 10px 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prix ul li {
+  display: block;
+  margin: 5%;
+}

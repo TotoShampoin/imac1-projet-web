@@ -1,0 +1,141 @@
+<!-- Une fois la commande validée, on accède à la page récapitulative de la commande :
+On peut voir toute notre commande
+On peut ajouter ou supprimer des produits
+Le prix total est affiché 
+
+Burger : viande rouge, viande blanche, poisson et végétarien
+Accompagnement : frites, potatoes
+Boisson : Sprite, Orangina, Coca Cola
+Dessert : cookie, muffin, donut     -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        {% include 'includes/head.html' %}
+        <title>Votre panier</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style/panier.css">
+        <link rel="stylesheet" href="style/global.css">
+    </head>
+    <body>
+        {% include 'includes/header.html' %}
+    </main>
+        <h1> Votre commande </h1>
+        <div class="panier-produits">
+            <!-- Burger -->
+            <ul>
+                <h2> Les Burgers </h2>
+                <li>
+                    <div class="produits">
+                        <h3>Burger viande rouge</h3>
+                        <p>10€00</p>
+                        <p>Quantité : 1</p>
+                        <a href="" class="button">Supprimer</a>
+                    </div>
+                </li>
+                <li> 
+                    <div class="produits">
+                        <h3>Burger poisson</h3>
+                        <p>10€00</p>
+                        <p>Quantité : 1</p>
+                        <a href="" class="button">Supprimer</a>
+                    </div>
+                </li>
+            </ul>
+            <li>
+                <div class="produits">
+                    <a href="" class="button">Ajouter un burger</a>
+                </div>
+            </li>
+            <!-- Accompagnement -->
+            <ul>
+                <h2> L'Accompagnement </h2>
+                <li> 
+                    <div class="produits">
+                        <h3>Frites</h3>
+                        <p>10€00</p>
+                        <p>Quantité : 2</p>
+                        <a href="" class="button">Supprimer</a>
+                    </div>
+                </li>
+            </ul>
+            <li>
+                <div class="produits">
+                    <a href="" class="button">Ajouter un accompagnement</a>
+                </div>
+            </li>
+            <!-- Boisson -->
+            <ul>
+                <h2> Boisson </h2>
+                <li> 
+                    <div class="produits">
+                        <h3>Sprite</h3>
+                        <p>10€00</p>
+                        <p>Quantité : 1</p>
+                        <a href="" class="button">Supprimer</a>
+                    </div>
+                </li>
+                <li> 
+                    <div class="produits">
+                        <h3>Orangina</h3>
+                        <p>10€00</p>
+                        <p>Quantité : 1</p>
+                        <a href="" class="button">Supprimer</a>
+                    </div>    
+                </li>
+            </ul>
+            <li>
+                <div class="produits">
+                    <a href="" class="button">Ajouter une boisson</a>
+                </div>
+            </li>
+            <!-- Dessert -->
+            <ul>
+                <h2> Dessert </h2>
+                <li>
+                    <div class="produits">
+                        <h3>Muffin</h3>
+                        <p>10€00</p>
+                        <p>Quantité : 1</p>
+                        <a href="" class="button">Supprimer</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="produits">
+                        <h3>Cookie</h3>
+                        <p>10€00</p>
+                        <p>Quantité : 1</p>
+                        <a href="" class="button">Supprimer</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="produits">
+                        <a href="" class="button">Ajouter un dessert</a>
+                    </div>
+                </li>
+            </ul>
+            
+        </div>
+        <div class="prix">
+            <ul>
+                <li> Produits </li>
+                <li> Livraison </li>
+                <li> <h2> Total </h2> </li>
+            </ul>
+            <ul>
+                <li> 80€00 </li>
+                <li> 4€50 </li>
+                <li> <h2> 84€50 </h2> </li>
+            </ul>
+
+        </div>
+        <a href="/commande" class="button">Valider la commande</a>
+
+    </main>
+        <script src="" async defer></script>
+        {% include 'includes/footer.html' %}
+    </body>
+</html>
