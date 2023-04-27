@@ -20,10 +20,13 @@ def default(url_path: str):
     # template html
     #   ./templates/info/jeu/index.html
     #   ./templates/info/jeu.html
+    print(url_path)
     if exists_and_is_dir(f"templates/{url_path}") and exists_and_is_file(f"templates/{url_path}/index.html"):
         return render_template(f"{url_path}/index.html")
     if exists_and_is_file(f"templates/{url_path}.html"):
         return render_template(f"{url_path}.html")
+    if exists_and_is_file(f"templates/{url_path}"):
+        return render_template(f"{url_path}")
     
     # fichier static
     #   ./static/info/jeu
