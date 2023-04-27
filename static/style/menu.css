@@ -1,0 +1,20 @@
+
+.menu-catalog {
+    display: flex;
+    padding: .5rem;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    overflow-x: auto;
+    list-style: none;
+}
+.menu-item {
+    width: 7rem;
+    min-width: 7rem;
+    height: 7rem;
+    min-height: 7rem;
+    text-align: center;
+}
+.menu-item__img {
+    width: 4rem;
+    height: 4rem;
+}
