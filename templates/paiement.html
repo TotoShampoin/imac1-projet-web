@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% include 'includes/head.html' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/paiement.css">
+    <title>Paiement de la commande</title>
+</head>
+<body>
+    {% include 'includes/header.html' %}
+    <main>
+        <h1>Page de paiement</h1>
+        <br>
+        <h3>Montant du total à payer : 84,50 €</h3>
+        <br>
+        Veuillez renseigner vos coordonnées afin que vous puissiez être livré.
+        <br> 
+        Seul le paiement en carte bleue est accepté.
+        <br>
+        <form>
+            <div class="coord">
+            <br>
+            <p>
+                <label for="surname">Votre nom :</label>
+                <input type="text" id="surname" name="surname">
+              </p>
+              <br>
+              <p>
+                <label for="name">Votre prénom :</label>
+                <input type="text" id="name" name="name">
+              </p>
+              <br>
+              <p>
+                <label for="adress">Votre adresse :</label>
+                <input type="text" id="adress" name="adress">
+              </p>
+              <br>
+              <p>
+                <label for="commentaires">Commentaires à ajouter :</label>
+                <input type="text" id="commentaires" name="commentaires">
+              </p>
+              <br>
+            </div>
+            <p> <button type="submit"> <a href="/cb.PNG">Procéder au paiement</a> </button>  </p>
+        </form>
+    </main>
+    <br>
+    {% include 'includes/footer.html' %}
+</body>
+</html>
