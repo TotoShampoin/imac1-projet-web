@@ -7,13 +7,21 @@
     overflow-x: auto;
     list-style: none;
 }
+.menu-catalog li {
+    position: relative;
+}
 .menu-item {
     width: 7rem;
     min-width: 7rem;
-    height: 7rem;
-    min-height: 7rem;
+    height: 100%;
     text-align: center;
 }
+.menu-item__info {
+    position: absolute;
+    top: -.5rem;
+    right: .5rem;
+}
+
 .menu-item__img {
     width: 4rem;
     height: 4rem;
