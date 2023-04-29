@@ -1,0 +1,18 @@
+version: '3'
+name: projet-web-db
+services:
+  database:
+    image: mariadb
+    ports:
+      - 3306:3306
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: burgurdash
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 3002:80
+    environment:
+      PMA_ARBITRARY: 1
+    links:
+      - database
