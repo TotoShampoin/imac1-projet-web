@@ -11,6 +11,7 @@ CORS(app)
 
 # Importer les fonctions dans modules/utils.py
 from modules.utils import *
+import modules.database
 
 # Cette fonction permet de chercher le bon fichier à partir de l'url
 # Exemple avec l'url:  site.com/info/jeu
