@@ -2,18 +2,43 @@
 <html lang="en">
 <head>
     {% include 'includes/head.html' %}
-    <title>BurgurDash</title>
+    <title>BurgutDash</title>
+    <link rel="stylesheet" href="style/accueil.css">
+    
 </head>
 <body>
-    {% include 'includes/header.html' %}
-    <main>
-        <ul>
-            <li><a href="menu.html">Commander votre repas</a></li>
-            <li><a href="panier.html">Panier</a></li>
-            <li><a href="paiement.html">Paiement</a></li>
-            <li><a href="manager.html">Gestionnaire (interdit aux clients)</a></li>
+
+    <div class="top-bar">
+        <h1 class="logo">Burgur Dash</h1>
+        <ul class="menu">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="menu.html">Commander</a></li>
+            <li><a href="manager.html">Connexion <span class="staff">(pour le personnel uniquement)</span></a></li>
         </ul>
-    </main>
+    </div>
+
+    <div class="carousel-wrapper">
+        <div class="carousel-container">
+          <div class="carousel">
+            <div class="image-one"><img src="images/burger1.jpg" alt="Burger 1"></div>
+            <div class="image-two"><img src="images/burger2.jpg" alt="Burger 2"></div>
+            <div class="image-three"><img src="images/burger3.jpg" alt="Burger 3"></div>
+            <div class="image-four"><img src="images/burger4.jpg" alt="Burger 4"></div>
+          </div>
+        </div>
+      </div>
+
+    <div class="mascot">
+        <a href="menu.html">
+            <img src="images/mascotte.png" alt="Mascotte" />
+        </a>
+        <div class="bulle">
+          Clique sur moi pour commander !
+        </div>
+        <div class="fleche"></div>
+    </div>
+
     {% include 'includes/footer.html' %}
+
 </body>
 </html>
