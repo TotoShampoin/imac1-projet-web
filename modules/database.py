@@ -10,13 +10,18 @@ DB_USER = cfg["DATABASE"]["DB_USER"]
 DB_PASS = cfg["DATABASE"]["DB_PASS"]
 
 # Base de donnée
-db = mysql.connector.connect(
-    host=DB_HOST,
-    port=DB_PORT,
-    user=DB_USER,
-    password=DB_PASS,
-    database=DB_NAME
-)
+try:
+    db = mysql.connector.connect(
+        host=DB_HOST,
+        port=DB_PORT,
+        user=DB_USER,
+        password=DB_PASS,
+        database=DB_NAME
+    )
+except:
+    print("Erreur lors de la connexion à la base de données.\nLes identifiants dans database/auth.cfg sont certainement invalides pour votre machine.")
+    exit()
+
 cursor = db.cursor()
 
 # Charger database/tables.sql
