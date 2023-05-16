@@ -26,7 +26,8 @@ cursor = db.cursor()
 
 # Charger database/tables.sql
 with open("database/tables.sql") as file:
-    sql = file.read()
-    cursor.execute(sql, multi=True)
+    sql = file.read().strip().split(";")
+    for s in sql:
+        cursor.execute(s)
     db.commit()
 
