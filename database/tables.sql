@@ -6,8 +6,8 @@ CREATE TABLE IF NOT EXISTS Commande (
         "livraison",
         "fini"
     )                           NOT NULL,
-    adresse     VARCHAR(4096)   NOT NULL,
-    contact     VARCHAR(15)     NOT NULL,
+    adresse     VARCHAR(4096),
+    contact     VARCHAR(15),
 
     PRIMARY KEY (comid)
 );
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS Aliment (
 CREATE TABLE IF NOT EXISTS Ingredient (
     ingid       INT             NOT NULL    AUTO_INCREMENT,
     libelle     VARCHAR(240)    NOT NULL,
-    stock       INT,
+    stock       INT             NOT NULL,
 
     PRIMARY KEY (ingid)
 );
@@ -52,3 +52,4 @@ CREATE TABLE IF NOT EXISTS AlimentIngredient (
     FOREIGN KEY (aliid)     REFERENCES Aliment(aliid),
     FOREIGN KEY (ingid)     REFERENCES Ingredient(ingid)
 );
+
