@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS Ingredient (
 CREATE TABLE IF NOT EXISTS CommandeAliment (
     comid       INT             NOT NULL,
     aliid       INT             NOT NULL,
+    quantite    INT             NOT NULL,
 
     PRIMARY KEY (comid, aliid),
     FOREIGN KEY (comid)     REFERENCES Commande(comid),
