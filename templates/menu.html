@@ -23,18 +23,41 @@
                 <h3>{{ category|title }}s</h3>
                 <ul class="menu-catalog">
                     {% for aliment in aliments[category]%}
-                    <li class="" data-aliid="{{aliment["id"]}}">
-                        <button class="menu-item">
+                    {% set id = aliment["id"] %}
+                    <li class="" data-aliid="{{id}}">
+                        <a href="menu/add/{{id}}" class="menu-item">
                             <img src="#" alt="" class="menu-item__img">
                             <p class="menu-item__name">{{aliment["libelle"]}}</p>
                             <p class="menu-item__price">{{aliment["prix"]}}€</p>
-                        </button>
-                        <button class="menu-item__info">i</button>
+                        </a>
+                        <div class="menu-item__context">
+                            <button class="button menu-item__button">i</button>
+                        </div>
                     </li>
                     {% endfor %}
                 </ul>
             </section>
             {% endfor %}
+        </div>
+        <div class="menu-basket">
+            <h2>Panier</h2>
+            <ul class="menu-catalog">
+                {% for aliment in commande %}
+                {% set id = aliment["id"] %}
+                <li class="" data-aliid="{{id}}">
+                    <div class="menu-item">
+                        <img src="#" alt="" class="menu-item__img">
+                        <p class="menu-item__name">{{aliment["libelle"]}}</p>
+                        <p class="menu-item__price">{{aliment["prix"]}}€</p>
+                    </div>
+                    <div class="menu-item__context">
+                        <a href="/menu/remove/{{id}}" class="button menu-item__button">–</a>
+                        <var class="menu-item__info">{{aliment["quantite"]}}</var>
+                        <a href="/menu/add/{{id}}" class="button menu-item__button">+</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
         <nav class="menu-nav">
             <a href="/" class="button">Annuler</a>
