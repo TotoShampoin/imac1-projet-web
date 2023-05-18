@@ -5,3 +5,15 @@ html,body {
 h1, h2, h3, p, ul {
     margin: 0;
 }
+
+.button {
+    border: none;
+    font: inherit;
+    text-decoration: none;
+    background: #EEE;
+    color: inherit;
+}
+.button:hover {
+    background: #DDD;
+    cursor: pointer;
+}
