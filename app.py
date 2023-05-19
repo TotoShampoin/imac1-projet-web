@@ -15,6 +15,7 @@ from modules.utils import *
 import modules.database
 
 import routes.commande
+import routes.manager
 
 # Cette fonction permet de chercher le bon fichier à partir de l'url
 # Exemple avec l'url:  site.com/info/jeu

@@ -12,12 +12,16 @@
         <p class="manager-money">250€</p>
         <h2>Commandes</h2>
         <div class="manager">
-            <section class="manager-section" id="preparing">
-                <h3>En cours de préparation</h3>
+            {% for etat in commandes %}
+            <section class="manager-section" id="{{etat}}">
+                <h3>{{ etat|title }}</h3>
                 <ul class="manager-order-list">
-                    <li class="manager-order">
-                        <p class="manager-order__number">000042 (2023/04/02-20:50)</p>
-                        <ul class="manager-item-list">
+                    {% for commande in commandes[etat] %}
+                    {% set id = commande["id"] %}
+                    <li class="" data-comid="{{id}}">
+                        <p class="manager-order__number">Commande n<sup>o</sup>{{id}}</p>
+                        <a href="manager/command/change/{{id}}" class="button manager-item__button">Changer le statut de la commande</a>
+                        <!-- <ul class="manager-item-list">
                             <li class="manager-item">
                                 <img src="#" alt="" class="manager-item__img">
                                 <p class="manager-item__name">Salade</p>
@@ -26,150 +30,12 @@
                                 <img src="#" alt="" class="manager-item__img">
                                 <p class="manager-item__name">Viande</p>
                             </li>
-                        </ul>
+                        </ul> -->
                     </li>
-                    <li class="manager-order">
-                        <p class="manager-order__number">000041 (2023/04/02-20:30)</p>
-                        <ul class="manager-item-list">
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Salade</p>
-                            </li>
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Viande</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="manager-order">
-                        <p class="manager-order__number">000040 (2023/04/02-19:20)</p>
-                        <ul class="manager-item-list">
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Salade</p>
-                            </li>
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Viande</p>
-                            </li>
-                        </ul>
-                    </li>
+                    {% endfor %}
                 </ul>
             </section>
-            <section class="manager-section" id="shipping">
-                <h3>En cours de livraison</h3>
-                <ul class="manager-order-list">
-                    <li class="manager-order">
-                        <p class="manager-order__number">000039 (2023/04/02-17:20)</p>
-                        <ul class="manager-item-list">
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Salade</p>
-                            </li>
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Viande</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="manager-order">
-                        <p class="manager-order__number">000038 (2023/04/02-15:10)</p>
-                        <ul class="manager-item-list">
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Salade</p>
-                            </li>
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Viande</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="manager-order">
-                        <p class="manager-order__number">000037 (2023/04/02-13:00)</p>
-                        <ul class="manager-item-list">
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Salade</p>
-                            </li>
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Viande</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="manager-order">
-                        <p class="manager-order__number">000036 (2023/04/02-12:00)</p>
-                        <ul class="manager-item-list">
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Salade</p>
-                            </li>
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Viande</p>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
-            <section class="manager-section" id="shipped">
-                <h3>Livrées</h3>
-                <ul class="manager-order-list">
-                    <li class="manager-order">
-                        <p class="manager-order__number">000035 (2023/04/01-18:50)</p>
-                        <ul class="manager-item-list">
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Salade</p>
-                            </li>
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Viande</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="manager-order">
-                        <p class="manager-order__number">000034 (2023/04/01-14:50)</p>
-                        <ul class="manager-item-list">
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Salade</p>
-                            </li>
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Viande</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="manager-order">
-                        <p class="manager-order__number">000033 (2023/04/01-12:50)</p>
-                        <ul class="manager-item-list">
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Salade</p>
-                            </li>
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Viande</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="manager-order">
-                        <p class="manager-order__number">000032 (2023/04/01-12:00)</p>
-                        <ul class="manager-item-list">
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Salade</p>
-                            </li>
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Viande</p>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
+            {% endfor %}
         </div>
         <h2>Stocks</h2>
         <ul class="manager-ingredient-list">
