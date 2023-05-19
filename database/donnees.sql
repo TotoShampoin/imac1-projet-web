@@ -1,5 +1,3 @@
-
-
 INSERT INTO Aliment (libelle, prix, category) VALUES
 ('Burger viande rouge', 7.99, 'burger'),
 ('Burger viande blanche', 7.99, 'burger'),
@@ -15,8 +13,8 @@ INSERT INTO Aliment (libelle, prix, category) VALUES
 ('Donut', 4.99, 'dessert');
 
 INSERT INTO Commande (etat, adresse) VALUES
-('commande', 'preparation', '71, rue Émile Rolland, Langlois'),
-('commande', 'preparation', '62, boulevard Roux, Martel');
+('preparation', '71, rue Émile Rolland, Langlois'),
+('preparation', '62, boulevard Roux, Martel');
 
 INSERT INTO CommandeAliment (comid, aliid, quantite) VALUES
 (1, 3, 2),

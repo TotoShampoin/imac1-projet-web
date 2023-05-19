@@ -1,6 +1,6 @@
-DROP TABLE CommandeAliment;
-DROP TABLE AlimentIngredient;
-DROP TABLE Ingredient;
-DROP TABLE Commande;
-DROP TABLE Aliment;
+DROP TABLE IF EXISTS CommandeAliment;
+DROP TABLE IF EXISTS AlimentIngredient;
+DROP TABLE IF EXISTS Ingredient;
+DROP TABLE IF EXISTS Commande;
+DROP TABLE IF EXISTS Aliment;
 

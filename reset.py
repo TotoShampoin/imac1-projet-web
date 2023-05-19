@@ -9,7 +9,6 @@ DB_NAME = cfg["DATABASE"]["DB_NAME"]
 DB_USER = cfg["DATABASE"]["DB_USER"]
 DB_PASS = cfg["DATABASE"]["DB_PASS"]
 
-# Base de donnée
 try:
     db = mysql.connector.connect(
         host=DB_HOST,
@@ -31,4 +30,14 @@ def exec_sql(path):
         for s in sql:
             cursor.execute(s)
         db.commit()
+
+
+print("Suppression des tables existantes")
+exec_sql("database/supprimer.sql")
+
+print("Création des nouvelles tables")
+exec_sql("database/tables.sql")
+
+print("Ajout des fausses données")
+exec_sql("database/donnees.sql")
 
