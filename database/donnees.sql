@@ -23,3 +23,25 @@ INSERT INTO CommandeAliment (comid, aliid, quantite) VALUES
 (1, 11, 1),
 (2, 4, 1),
 (2, 6, 1);
+
+INSERT INTO Ingredient (libelle, stock) VALUES
+('Pain', 10),
+('Viande rouge', 10),
+('Viande blanche', 10),
+('Poulet', 10),
+('Poisson', 10),
+('Salade', 10),
+('Tomate', 10),
+('Oignon', 10),
+('Fromage', 10),
+('Sauce burger', 10),
+('Ketchup', 10),
+('Moutarde', 10),
+('Frites', 10),
+('Potatoes', 10),
+('Sprite', 10),
+('Orangina', 10),
+('Coca Cola', 10),
+('Cookie', 10),
+('Muffin', 10),
+('Donut', 10);
