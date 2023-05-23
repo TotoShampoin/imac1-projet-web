@@ -22,7 +22,21 @@ def getCommandes():
     }
     return commandes
 
-def changeCommandState(comid):
+def getIngredients():
+    cursor.execute("""
+        SELECT
+            Ingredient.ingid, Ingredient.libelle, Ingredient.stock
+        FROM Ingredient
+    """)
+    fetched = cursor.fetchall()
+    ingredients = [{
+        "id": int(ing[0]),
+        "libelle": str(ing[1]),
+        "stock": int(ing[2]),
+    } for ing in fetched]
+    return ingredients
+
+def moveDownCommandState(comid):
     cursor.execute(f"""
         SELECT
             Commande.etat
@@ -45,15 +59,45 @@ def changeCommandState(comid):
         """)
     db.commit()
 
+def moveUpCommandState(comid):
+    cursor.execute(f"""
+        SELECT
+            Commande.etat
+        FROM Commande
+        WHERE Commande.comid = {comid}
+    """)
+    fetched = cursor.fetchall()
+    etat = fetched[0][0]
+    if etat == 'fini':
+        cursor.execute(f"""
+            UPDATE Commande
+            SET etat = 'livraison'
+            WHERE comid = {comid}
+        """)
+    elif etat == 'livraison':
+        cursor.execute(f"""
+            UPDATE Commande
+            SET etat = 'preparation'
+            WHERE comid = {comid}
+        """)
+    db.commit()
+
 
 @app.route("/manager", methods=["GET"])
 def manager():
     commandes = getCommandes()
+    ingredients = getIngredients()
     return render_template("manager.html",
         commandes = commandes,
+        ingredients = ingredients,
     )
 
-@app.route("/manager/command/change/<int:comid>", methods=["GET"])
-def manager_command_change(comid: int):
-    changeCommandState(comid)
+@app.route("/manager/command/move_down/<int:comid>", methods=["GET"])
+def manager_command_move_down(comid: int):
+    moveDownCommandState(comid)
+    return redirect("/manager")
+
+@app.route("/manager/command/move_up/<int:comid>", methods=["GET"])
+def manager_command_move_up(comid: int):
+    moveUpCommandState(comid)
     return redirect("/manager")

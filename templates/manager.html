@@ -20,7 +20,10 @@
                     {% set id = commande["id"] %}
                     <li class="" data-comid="{{id}}">
                         <p class="manager-order__number">Commande n<sup>o</sup>{{id}}</p>
-                        <a href="manager/command/change/{{id}}" class="button manager-item__button">Changer le statut de la commande</a>
+                        <div>
+                            <a href="manager/command/move_down/{{id}}" class="button manager-item__button">-- ↓ --</a>
+                            <a href="manager/command/move_up/{{id}}" class="button manager-item__button">- ↑ -</a>
+                        </div>
                         <!-- <ul class="manager-item-list">
                             <li class="manager-item">
                                 <img src="#" alt="" class="manager-item__img">
@@ -39,18 +42,17 @@
         </div>
         <h2>Stocks</h2>
         <ul class="manager-ingredient-list">
+            {% for ingredient in ingredients %}
+            {% set libelle = ingredient["libelle"] %}
+            {% set stock = ingredient["stock"] %}
             <li class="manager-ingredient">
-                <p class="manager-ingredient__name">Salade</p>
-                <p class="manager-ingredient__number">2</p>
+                <p class="manager-ingredient__name">{{libelle}}</p>
+                <p class="manager-ingredient__number">{{stock}}</p>
             </li>
-            <li class="manager-ingredient">
-                <p class="manager-ingredient__name">Viande</p>
-                <p class="manager-ingredient__number">14</p>
-            </li>
+            {% endfor %}
         </ul>
         <nav class="manager-nav">
             <a href="/" class="button">Annuler</a>
-            <a href="/panier" class="button">Voir le panier</a>
         </nav>
     </main>
     {% include 'includes/footer.html' %}
