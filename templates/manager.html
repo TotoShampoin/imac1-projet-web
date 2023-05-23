@@ -20,20 +20,24 @@
                     {% set id = commande["id"] %}
                     <li class="" data-comid="{{id}}">
                         <p class="manager-order__number">Commande n<sup>o</sup>{{id}}</p>
+                        <ul class="manager-item-list">
+                            {% for commande2 in commande_aliments %}
+                            {% if id == commande2['id'] %}
+                            {% for aliment in commande2['contenu'] %}
+                            {% set libelle = aliment["libelle"] %}
+                            {% set quantite = aliment["quantite"] %}
+                            <li class="manager-item">
+                                <img src="#" alt="" class="manager-item__img">
+                                <p class="manager-item__name">{{quantite}}&#215{{libelle}}</p>
+                            </li>
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
                         <div>
                             <a href="manager/command/move_down/{{id}}" class="button manager-item__button">-- ↓ --</a>
                             <a href="manager/command/move_up/{{id}}" class="button manager-item__button">- ↑ -</a>
                         </div>
-                        <!-- <ul class="manager-item-list">
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Salade</p>
-                            </li>
-                            <li class="manager-item">
-                                <img src="#" alt="" class="manager-item__img">
-                                <p class="manager-item__name">Viande</p>
-                            </li>
-                        </ul> -->
                     </li>
                     {% endfor %}
                 </ul>

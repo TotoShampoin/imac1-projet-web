@@ -82,14 +82,36 @@ def moveUpCommandState(comid):
         """)
     db.commit()
 
+def getCommandContent(comid):
+    cursor.execute(f"""
+        SELECT
+            Aliment.aliid, Aliment.libelle, Aliment.prix, CommandeAliment.quantite
+        FROM Aliment
+        JOIN CommandeAliment ON CommandeAliment.aliid = Aliment.aliid
+        WHERE CommandeAliment.comid = {comid}
+    """)
+    commande = [{
+        "id": int(al[0]),
+        "libelle": str(al[1]),
+        "prix": float(al[2]),
+        "quantite": int(al[3]),
+    } for al in cursor.fetchall()]
+    return commande
 
 @app.route("/manager", methods=["GET"])
 def manager():
     commandes = getCommandes()
     ingredients = getIngredients()
+    commande_aliments = []
+    for etat in commandes:
+        commande_aliments += [{
+            "id": commande['id'],
+            "contenu": getCommandContent(commande['id']),
+        } for commande in commandes[etat]]
     return render_template("manager.html",
         commandes = commandes,
         ingredients = ingredients,
+        commande_aliments = commande_aliments,
     )
 
 @app.route("/manager/command/move_down/<int:comid>", methods=["GET"])
