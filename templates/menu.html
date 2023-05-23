@@ -4,14 +4,6 @@
     {% include 'includes/head.html' %}
     <link rel="stylesheet" href="style/menu.css">
     <title>BurgurDash - Commande</title>
-
-    <script>
-        var decodeHTML = function (html) {
-            var txt = document.createElement('textarea');
-            txt.innerHTML = html;
-            return txt.value;
-        };
-    </script>
 </head>
 <body>
     {% include 'includes/header.html' %}
@@ -24,7 +16,7 @@
                 <ul class="menu-catalog">
                     {% for aliment in aliments[category]%}
                     {% set id = aliment["id"] %}
-                    <li class="" data-aliid="{{id}}">
+                    <li class="" data-type="aliment" data-aliid="{{id}}" data-ing="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam, velit quasi magni enim unde, iusto, repellat sunt quis et aliquam aspernatur consequuntur. Accusamus dicta quod nihil voluptas eaque natus dolor?">
                         <a href="menu/add/{{id}}" class="menu-item">
                             <img src="#" alt="" class="menu-item__img">
                             <p class="menu-item__name">{{aliment["libelle"]}}</p>
@@ -44,7 +36,7 @@
             <ul class="menu-catalog">
                 {% for aliment in commande %}
                 {% set id = aliment["id"] %}
-                <li class="" data-aliid="{{id}}">
+                <li class="" data-type="commande" data-aliid="{{id}}">
                     <div class="menu-item">
                         <img src="#" alt="" class="menu-item__img">
                         <p class="menu-item__name">{{aliment["libelle"]}}</p>
@@ -63,7 +55,32 @@
             <a href="/" class="button">Annuler</a>
             <a href="/panier" class="button">Voir le panier</a>
         </nav>
+        <div class="popup-layer" id="popup">
+            <div class="popup-box">
+                <div id="popup-text"></div>
+            </div>
+        </div>
     </main>
+
+    <script>
+        const $popup = document.getElementById("popup");
+        const $popup_text = document.getElementById("popup-text");
+        const $popup_img = document.getElementById("popup-img");
+
+        $popup.addEventListener("click", e => {
+            $popup.classList.remove("show");
+        });
+
+        for(let ali of document.querySelectorAll("[data-type=aliment]")) {
+            const aliid = ali.dataset.aliid;
+            const ing = ali.dataset.ing;
+            const button = ali.querySelector(".menu-item__button");
+            button.addEventListener("click", e => {
+                $popup_text.innerText = ing;
+                $popup.classList.add("show");
+            });
+        }
+    </script>
     {% include 'includes/footer.html' %}
 </body>
 </html>

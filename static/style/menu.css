@@ -48,3 +48,24 @@
     width: 4rem;
     height: 4rem;
 }
+
+.popup-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; width: 100dvw;
+    height: 100vh; height: 100dvh;
+    display: none;
+    background: #0005;
+}
+.popup-layer.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popup-box {
+    width: 75%;
+    min-width: 12rem;
+    padding: 1rem 1.5rem;
+    background: #FFF;
+}
