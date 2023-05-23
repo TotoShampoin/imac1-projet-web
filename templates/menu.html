@@ -16,15 +16,19 @@
                 <ul class="menu-catalog">
                     {% for aliment in aliments[category]%}
                     {% set id = aliment["id"] %}
-                    <li class="" data-type="aliment" data-aliid="{{id}}" data-ing="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam, velit quasi magni enim unde, iusto, repellat sunt quis et aliquam aspernatur consequuntur. Accusamus dicta quod nihil voluptas eaque natus dolor?">
+                    {% set libelle = aliment["libelle"] %}
+                    {% set ingredients = aliment["ingredients"] %}
+                    <li class="" data-type="aliment" data-aliid="{{id}}" data-ing="{{ingredients}}">
                         <a href="menu/add/{{id}}" class="menu-item">
                             <img src="#" alt="" class="menu-item__img">
                             <p class="menu-item__name">{{aliment["libelle"]}}</p>
                             <p class="menu-item__price">{{aliment["prix"]}}€</p>
                         </a>
+                        {% if ingredients != libelle %}
                         <div class="menu-item__context">
                             <button class="button menu-item__button">i</button>
                         </div>
+                        {% endif %}
                     </li>
                     {% endfor %}
                 </ul>
@@ -75,7 +79,7 @@
             const aliid = ali.dataset.aliid;
             const ing = ali.dataset.ing;
             const button = ali.querySelector(".menu-item__button");
-            button.addEventListener("click", e => {
+            button?.addEventListener("click", e => {
                 $popup_text.innerText = ing;
                 $popup.classList.add("show");
             });

@@ -30,6 +30,20 @@ def getCommandContent(comid):
     } for al in cursor.fetchall()]
     return commande
 
+def getIngredients(aliid):
+    cursor.execute(f"""
+        SELECT Ingredient.ingid, libelle, stock FROM `Ingredient`
+        JOIN AlimentIngredient ON Ingredient.ingid = AlimentIngredient.ingid
+        WHERE AlimentIngredient.aliid = {aliid}
+    """)
+    fetched = cursor.fetchall()
+    ingredients = [{
+        "id": int(ing[0]),
+        "libelle": str(ing[1]),
+        "stock": int(ing[2])
+    } for ing in fetched]
+    return ingredients
+
 def getAliments():
     cursor.execute("""
         SELECT
@@ -41,7 +55,8 @@ def getAliments():
         "id": int(al[0]),
         "libelle": str(al[1]),
         "prix": float(al[2]),
-        "category": str(al[3])
+        "category": str(al[3]),
+        "ingredients": ", ".join([ing["libelle"] for ing in getIngredients(al[0])])
     } for al in fetched]
     aliments = {
         "burger": list(filter(lambda a: a["category"] == "burger", fetched2)),
