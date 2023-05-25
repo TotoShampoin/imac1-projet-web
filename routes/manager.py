@@ -114,11 +114,22 @@ def removeFromStock(ingid):
     """)
     db.commit()
 
+def calculatePaycheck():
+    cursor.execute(f"""
+        SELECT SUM(a.prix * ca.quantite)
+        FROM Aliment a
+        JOIN CommandeAliment ca ON a.aliid = ca.aliid
+        JOIN Commande c ON ca.comid = c.comid
+        WHERE c.etat = 'fini'
+    """)
+    return cursor.fetchall()[0][0]
+
 @app.route("/manager", methods=["GET"])
 def manager():
     commandes = getCommandes()
     ingredients = getIngredients()
     commande_aliments = []
+    paycheck = calculatePaycheck()
     for etat in commandes:
         commande_aliments += [{
             "id": commande['id'],
@@ -128,6 +139,7 @@ def manager():
         commandes = commandes,
         ingredients = ingredients,
         commande_aliments = commande_aliments,
+        paycheck = paycheck,
     )
 
 @app.route("/manager/command/move_down/<int:comid>", methods=["GET"])
