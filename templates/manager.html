@@ -47,11 +47,18 @@
         <h2>Stocks</h2>
         <ul class="manager-ingredient-list">
             {% for ingredient in ingredients %}
+            {% set id = ingredient["id"] %}
             {% set libelle = ingredient["libelle"] %}
             {% set stock = ingredient["stock"] %}
             <li class="manager-ingredient">
                 <p class="manager-ingredient__name">{{libelle}}</p>
                 <p class="manager-ingredient__number">{{stock}}</p>
+                <div class="menu-item__context">
+                    {% if stock > 0 %}
+                    <a href="/manager/stock/remove/{{id}}" class="button manager-item__button">–</a>
+                    {% endif %}
+                    <a href="/manager/stock/add/{{id}}" class="button manager-item__button">+</a>
+                </div>
             </li>
             {% endfor %}
         </ul>

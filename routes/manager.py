@@ -98,6 +98,22 @@ def getCommandContent(comid):
     } for al in cursor.fetchall()]
     return commande
 
+def addToStock(ingid):
+    cursor.execute(f"""
+        UPDATE Ingredient
+        SET stock = stock + 1
+        WHERE ingid = {ingid}
+    """)
+    db.commit()
+
+def removeFromStock(ingid):
+    cursor.execute(f"""
+        UPDATE Ingredient
+        SET stock = stock - 1
+        WHERE ingid = {ingid}
+    """)
+    db.commit()
+
 @app.route("/manager", methods=["GET"])
 def manager():
     commandes = getCommandes()
@@ -122,4 +138,14 @@ def manager_command_move_down(comid: int):
 @app.route("/manager/command/move_up/<int:comid>", methods=["GET"])
 def manager_command_move_up(comid: int):
     moveUpCommandState(comid)
+    return redirect("/manager")
+
+@app.route("/manager/stock/add/<int:ingid>", methods=["GET"])
+def manager_stock_add(ingid: int):
+    addToStock(ingid)
+    return redirect("/manager")
+
+@app.route("/manager/stock/remove/<int:ingid>", methods=["GET"])
+def manager_stock_remove(ingid: int):
+    removeFromStock(ingid)
     return redirect("/manager")
