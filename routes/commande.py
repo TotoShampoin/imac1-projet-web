@@ -9,6 +9,15 @@ def startCommand():
     db.commit()
     return cursor.lastrowid
 
+def cancelCommand(comid):
+    cursor.execute(f"""
+        DELETE FROM CommandeAliment WHERE CommandeAliment.comid = {comid}
+    """)
+    cursor.execute(f"""
+        DELETE FROM Commande WHERE Commande.comid = {comid}
+    """)
+    db.commit()
+
 def fetchCommand(session):
     if 'comid' not in session:
         session['comid'] = startCommand()
@@ -116,6 +125,11 @@ def menu_remove(aliid: int):
     removeFromBasket(comid, aliid)
     return redirect("/menu")
 
+@app.route("/menu/cancel", methods=["GET"])
+def menu_cancel():
+    comid = fetchCommand(session)
+    cancelCommand(comid)
+    return redirect("/")
 
 
 
