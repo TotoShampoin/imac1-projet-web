@@ -60,13 +60,17 @@ def getAliments():
         FROM Aliment
     """)
     fetched = cursor.fetchall()
-    fetched2 = [{
-        "id": int(al[0]),
-        "libelle": str(al[1]),
-        "prix": float(al[2]),
-        "category": str(al[3]),
-        "ingredients": ", ".join([ing["libelle"] for ing in getIngredients(al[0])])
-    } for al in fetched]
+    fetched2 = []
+    for al in fetched:
+        ingredients = getIngredients(al[0])
+        fetched2.append({
+            "id": int(al[0]),
+            "libelle": str(al[1]),
+            "prix": float(al[2]),
+            "category": str(al[3]),
+            "ingredients": ", ".join([ing["libelle"] for ing in ingredients]),
+            "disponible": False if 0 in [int(ing["stock"]) for ing in ingredients] else True
+        })
     aliments = {
         "burger": list(filter(lambda a: a["category"] == "burger", fetched2)),
         "boisson": list(filter(lambda a: a["category"] == "boisson", fetched2)),

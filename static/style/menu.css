@@ -49,6 +49,11 @@
     height: 4rem;
 }
 
+.disabled {
+    pointer-events: none;
+    opacity: .5;
+}
+
 .popup-layer {
     position: fixed;
     top: 0;
