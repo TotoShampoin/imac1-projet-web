@@ -129,6 +129,7 @@ def menu_remove(aliid: int):
 def menu_cancel():
     comid = fetchCommand(session)
     cancelCommand(comid)
+    session.clear()
     return redirect("/")
 
 
