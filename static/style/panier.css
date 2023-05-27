@@ -13,7 +13,7 @@ ul, li {
 }
 
 main {
-  display: flex;
+  display: inline-block;
 }
 
 .produits a {
@@ -50,8 +50,8 @@ li div h3 {
 
 .prix {
   background-color: aqua;
-  margin: 20px 40% 10px 40%;
-  display: flex;
+  margin: 20px 20% 10px 20%;
+  display: block;
   justify-content: center;
   align-items: center;
 }

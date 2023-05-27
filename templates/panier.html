@@ -1,13 +1,3 @@
-<!-- Une fois la commande validée, on accède à la page récapitulative de la commande :
-On peut voir toute notre commande
-On peut ajouter ou supprimer des produits
-Le prix total est affiché 
-
-Burger : viande rouge, viande blanche, poisson et végétarien
-Accompagnement : frites, potatoes
-Boisson : Sprite, Orangina, Coca Cola
-Dessert : cookie, muffin, donut     -->
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,94 +12,33 @@ Dessert : cookie, muffin, donut     -->
     </head>
     <body>
         {% include 'includes/header.html' %}
-    </main>
+    <main>
         <a href="/menu" class="button">Retour à la commande</a>
-        <h1> Votre commande </h1>
+        <h1> Récapitulatif de votre commande </h1>
         <div class="panier-produits">
-            <!-- Burger -->
             <ul>
-                <h2> Les Burgers </h2>
-                <li>
-                    <div class="produits">
-                        <h3>Burger viande rouge</h3>
-                        <p>10€00</p>
-                        <p>Quantité : 1</p>
-                    </div>
-                </li>
-                <li> 
-                    <div class="produits">
-                        <h3>Burger poisson</h3>
-                        <p>10€00</p>
-                        <p>Quantité : 1</p>
-                    </div>
-                </li>
-            </ul>
-            <!-- Accompagnement -->
-            <ul>
-                <h2> L'Accompagnement </h2>
-                <li> 
-                    <div class="produits">
-                        <h3>Frites</h3>
-                        <p>10€00</p>
-                        <p>Quantité : 2</p>
-                    </div>
-                </li>
-            </ul>
-            <!-- Boisson -->
-            <ul>
-                <h2> Boisson </h2>
-                <li> 
-                    <div class="produits">
-                        <h3>Sprite</h3>
-                        <p>10€00</p>
-                        <p>Quantité : 1</p>
-                    </div>
-                </li>
-                <li> 
-                    <div class="produits">
-                        <h3>Orangina</h3>
-                        <p>10€00</p>
-                        <p>Quantité : 1</p>
-                    </div>    
-                </li>
-            </ul>
-            <!-- Dessert -->
-            <ul>
-                <h2> Dessert </h2>
-                <li>
-                    <div class="produits">
-                        <h3>Muffin</h3>
-                        <p>10€00</p>
-                        <p>Quantité : 1</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="produits">
-                        <h3>Cookie</h3>
-                        <p>10€00</p>
-                        <p>Quantité : 1</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="produits">
-                    </div>
-                </li>
-            </ul>
-            
+                {% for aliment in commande %}
+                {% set id = aliment["id"] %}
+                        <h2>{{ aliment["category"] }}s</h2>
+                        <li>
+                            <div class="produits">
+                                <h3 class="menu-item__name">{{aliment["libelle"]}}</h3>
+                                <p class="menu-item__price">Prix à l'unité : {{aliment["prix"]}}€</p>
+                                <p class="menu-item__price">Quantité : {{aliment["quantite"]}}</p>
+                            </div>
+                        </li>
+                    </ul>
+            {% endfor %}
         </div>
+        
         <div class="prix">
             <ul>
-                <li> Produits </li>
-                <li> Livraison </li>
-                <li> <h2> Total </h2> </li>
+                <li>Produits : {{sousTotal }}€</li>
+                <li>Livraison : 2€</li>
+                <li><h2>Total : {{ prix_total }}€</h2></li>
             </ul>
-            <ul>
-                <li> 80€00 </li>
-                <li> 4€50 </li>
-                <li> <h2> 84€50 </h2> </li>
-            </ul>
-
         </div>
+        
         <a href="/paiement.html" class="button">Valider la commande</a>
 
     </main>
