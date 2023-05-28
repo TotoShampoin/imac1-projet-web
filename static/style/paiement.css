@@ -1,19 +1,88 @@
-body{
+/* Menu horizontal */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-top: 5px solid #e22e2e;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu li {
+    margin-right: 30px;
+}
+
+.menu li:last-child {
+    margin-right: 0;
+}
+
+.menu a {
+    color: #e22e2e;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border: 2px solid #e22e2e;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #e22e2e;
+    color: #fff;
+}
+
+.logo {
+    color: #e22e2e;
+}
+
+body {
     text-align: center;
 }
 
-.coord{
-    background-color: rgb(132, 192, 245);
-    margin-left: 450px;
-    margin-right: 450px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+.payment-section {
+    background-color: #f5b7b7;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
 }
 
-h3{
-    background-color: rgb(132, 192, 245);
-    margin-left: 480px;
-    margin-right: 480px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+h1 {
+    margin-top: 30px;
+}
+
+h3 {
+    background-color: #e22e2e;
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.payment-form {
+    margin-top: 20px;
+}
+
+.payment-form p {
+    margin-bottom: 10px;
+}
+
+.payment-form img {
+    width: 350px;
+    height: auto;
+}
+
+.footer {
+    text-align: left;
 }

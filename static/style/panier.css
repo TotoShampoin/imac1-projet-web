@@ -1,12 +1,59 @@
-body {
-    margin: 10%;
-    text-align: center;
-    background-color: #fefefe;
-    list-style: none;
-    align-items: center;
-} 
+/* Menu horizontal */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-top: 5px solid #e22e2e;
+}
 
-ul, li {
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu li {
+  margin-right: 30px;
+}
+
+.menu li:last-child {
+  margin-right: 0;
+}
+
+.menu a {
+  color: #e22e2e;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border: 2px solid #e22e2e;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: #e22e2e;
+  color: #fff;
+}
+
+.logo {
+  color: #e22e2e;
+}
+
+body {
+  margin: 10%;
+  text-align: center;
+  background-color: #fefefe;
+  list-style: none;
+  align-items: center;
+}
+
+ul,
+li {
   list-style: none;
   display: inline;
   align-items: center;
@@ -14,43 +61,55 @@ ul, li {
 
 main {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .produits a {
   margin-top: 10px;
-  text-align : center;
+  text-align: center;
 }
 
 .produits {
-  background-color: #d8afe2;
-  margin: 0px 10% 0px 10%;
+  background-color: #f7c2c2;
+  margin: 10px;
   padding: 10px;
-  display: block;
-  flex-wrap: wrap;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(255, 0, 0, 0.2);
 }
 
 .panier-produits {
-  background-color: #e1c8e8;
+  background-color: white;
   margin: 20px 10% 10px 10%;
-  padding: 10px 0 30px 0;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(255, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  width: 80%;
 }
-  
-ul h2 {
-  margin: 20px;
+
+.burger-viande-rouge,
+.burger-poisson,
+.frites,
+.sprite,
+.orangina,
+.muffin,
+.cookie {
+  color: #e22e2e;
 }
-  
-li img {
-    margin-right: 10px;
-}
-   
-li div h3 {
-    margin-top: 0;
-    margin-bottom: 5px;
+
+.button {
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
 .prix {
-  background-color: aqua;
-  margin: 20px 40% 10px 40%;
+  background-color: white;
+  margin: 20px 10% 10px 10%;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(255, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,4 +118,8 @@ li div h3 {
 .prix ul li {
   display: block;
   margin: 5%;
+}
+
+.footer {
+  text-align: left;
 }

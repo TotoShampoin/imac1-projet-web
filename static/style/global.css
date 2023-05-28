@@ -1,3 +1,49 @@
+/* Menu horizontal */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-top: 5px solid #e22e2e;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .navigation li {
+    margin-right: 30px;
+  }
+  
+  .navigation li:last-child {
+    margin-right: 0;
+  }
+  
+  .navigation a {
+    color: #e22e2e;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border: 2px solid #e22e2e;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .navigation a:hover {
+    background-color: #e22e2e;
+    color: #fff;
+  }
+  
+  .logo {
+    color: #e22e2e;
+  }
+
 html,body {
     margin: 0;
 }
