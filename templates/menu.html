@@ -17,12 +17,14 @@
                     {% for aliment in aliments[category]%}
                     {% set id = aliment["id"] %}
                     {% set libelle = aliment["libelle"] %}
-                    {% set ingredients = aliment["ingredients"] %}
+                    {% set prix = aliment["prix"] %}
+                    {% set ingredients = "RUPTURE DE STOCK" if not aliment["disponible"] else aliment["ingredients"] %}
+                    {% set disponible = "disabled" if not aliment["disponible"] else "" %}
                     <li class="" data-type="aliment" data-aliid="{{id}}" data-ing="{{ingredients}}">
-                        <a href="menu/add/{{id}}" class="menu-item">
+                        <a href="menu/add/{{id}}" class="menu-item {{disponible}}">
                             <img src="#" alt="" class="menu-item__img">
-                            <p class="menu-item__name">{{aliment["libelle"]}}</p>
-                            <p class="menu-item__price">{{aliment["prix"]}}€</p>
+                            <p class="menu-item__name">{{libelle}}</p>
+                            <p class="menu-item__price">{{prix}}€</p>
                         </a>
                         {% if ingredients != libelle %}
                         <div class="menu-item__context">
@@ -56,7 +58,7 @@
             </ul>
         </div>
         <nav class="menu-nav">
-            <a href="/" class="button">Annuler</a>
+            <a href="/menu/cancel" class="button">Annuler</a>
             <a href="/panier" class="button">Voir le panier</a>
         </nav>
         <div class="popup-layer" id="popup">

@@ -1,71 +1,267 @@
-
-.menu-catalog {
+/* Menu horizontal */
+.top-bar {
     display: flex;
-    padding: .5rem;
-    padding-bottom: 1rem;
-    gap: 1rem;
-    overflow-x: auto;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-top: 5px solid #e22e2e;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
     list-style: none;
 }
-.menu-catalog li {
-    position: relative;
+
+.navigation li {
+    margin-right: 30px;
 }
-.menu-item {
-    display: block;
-    width: 7rem;
-    min-width: 7rem;
-    height: 100%;
-    text-align: center;
-    color: black;
+
+.navigation li:last-child {
+    margin-right: 0;
+}
+
+.navigation a {
+    color: #e22e2e;
     text-decoration: none;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border: 2px solid #e22e2e;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
-.menu-item__context {
-    position: absolute;
-    top: -.5rem;
-    right: .75rem;
+
+.navigation a:hover {
+    background-color: #e22e2e;
+    color: #fff;
+}
+
+.logo {
+    color: #e22e2e;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-list {
     display: flex;
-    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
-.menu-item__button {
-    box-sizing: border-box;
-    display: block;
-    width: 1.5rem;
-    height: 1.5rem;
-    padding: .25rem;
+
+.menu-catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    list-style: none;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     color: black;
     text-decoration: none;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    margin-right: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.menu-item__info {
-    display: block;
-    width: 1.5rem;
-    height: 1.5rem;
-    padding: .25rem;
-    font-style: normal;
-    background: #FFF;
+
+.menu-item:last-child {
+    margin-right: 0;
+}
+
+.menu-item__link {
+    text-decoration: none;
+    color: black;
 }
 
 .menu-item__img {
-    width: 4rem;
-    height: 4rem;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 0.5rem;
+}
+
+.menu-item__info {
+    margin-top: auto;
+}
+
+.menu-item__name {
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+.menu-item__price {
+    margin-top: 0.25rem;
+    color: #888;
+}
+
+.menu-item__button {
+    display: inline-block;
+    padding: 0.5rem;
+    font-weight: bold;
+    background-color: #f8f8f8;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-item__button:hover {
+    background-color: #ebebeb;
+}
+
+.menu-basket {
+    margin-top: 2rem;
+}
+
+.menu-item__quantity {
+    margin: 0 0.5rem;
+    font-weight: bold;
+}
+
+.menu-nav {
+    margin-top: 2rem;
+}
+
+.menu-nav .button {
+    border-radius: 20px;
 }
 
 .popup-layer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; width: 100dvw;
-    height: 100vh; height: 100dvh;
+    width: 100vw;
+    height: 100vh;
     display: none;
-    background: #0005;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
 }
+
 .popup-layer.show {
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
+
 .popup-box {
-    width: 75%;
-    min-width: 12rem;
-    padding: 1rem 1.5rem;
-    background: #FFF;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.popup-text {
+    margin-bottom: 1rem;
+}
+
+/* Modifications */
+
+h2 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.top-bar {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.menu-section h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #e22e2e; /* Changement de la couleur du titre */
+}
+
+.menu-catalog li:hover {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre au survol */
+}
+
+.menu-item:hover,
+.menu-item[data-type="aliment"]:hover {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre au survol */
+}
+
+.menu-item__name {
+    font-size: 1.2rem; /* Augmentation de la taille du nom de l'aliment */
+}
+
+.menu-item__price {
+    font-size: 1.1rem; /* Augmentation de la taille du prix de l'aliment */
+    color: #e22e2e; /* Changement de la couleur du prix */
+}
+
+.menu-item__button {
+    font-size: 1.1rem; /* Augmentation de la taille du bouton */
+    background-color: #e22e2e; /* Changement de la couleur du bouton */
+    color: #fff; /* Changement de la couleur du texte du bouton */
+}
+
+.menu-item__button:hover {
+    background-color: #c21919; /* Changement de la couleur du bouton au survol */
+}
+
+.menu-basket {
+    margin-top: 2rem;
+    background-color: #f5f5f5; /* Changement de la couleur du panier */
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+}
+
+.menu-nav {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.menu-nav a.button {
+    padding: 0.75rem 2rem; /* Ajustement de la taille du bouton */
+}
+
+.popup-text {
+    margin-bottom: 1rem;
+    color: #e22e2e; /* Changement de la couleur du texte du popup */
+}
+
+.popup-box {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+}
+
+.popup-layer.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999; /* Augmentation du niveau de superposition */
+}
+
+.popup-box {
+    max-width: 400px; /* Ajustement de la largeur du popup */
+}
+
+.popup-img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
 }
