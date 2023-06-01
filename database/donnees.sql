@@ -12,14 +12,6 @@ INSERT INTO Aliment (libelle, prix, category) VALUES
 ('Muffin', 4.99, 'dessert'),
 ('Donut', 4.99, 'dessert');
 
-INSERT INTO CommandeAliment (comid, aliid, quantite) VALUES
-(1, 3, 2),
-(1, 5, 1),
-(1, 9, 1),
-(1, 11, 1),
-(2, 4, 1),
-(2, 6, 1);
-
 INSERT INTO Ingredient (libelle, stock) VALUES
 ('Pain', 10),
 ('Viande rouge', 10),
