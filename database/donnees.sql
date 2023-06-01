@@ -12,10 +12,6 @@ INSERT INTO Aliment (libelle, prix, category) VALUES
 ('Muffin', 4.99, 'dessert'),
 ('Donut', 4.99, 'dessert');
 
-INSERT INTO Commande (etat, adresse) VALUES
-('preparation', '71, rue Émile Rolland, Langlois'),
-('preparation', '62, boulevard Roux, Martel');
-
 INSERT INTO CommandeAliment (comid, aliid, quantite) VALUES
 (1, 3, 2),
 (1, 5, 1),
