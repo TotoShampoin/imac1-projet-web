@@ -22,7 +22,7 @@
                     {% set disponible = "disabled" if not aliment["disponible"] else "" %}
                     <li class="" data-type="aliment" data-aliid="{{id}}" data-ing="{{ingredients}}">
                         <a href="menu/add/{{id}}" class="menu-item {{disponible}}">
-                            <img src="#" alt="" class="menu-item__img">
+                            <img src="/images/aliments/{{id}}.webp" alt="" class="menu-item__img">
                             <p class="menu-item__name">{{libelle}}</p>
                             <p class="menu-item__price">{{prix}}€</p>
                         </a>
@@ -44,7 +44,7 @@
                 {% set id = aliment["id"] %}
                 <li class="" data-type="commande" data-aliid="{{id}}">
                     <div class="menu-item">
-                        <img src="#" alt="" class="menu-item__img">
+                        <img src="/images/aliments/{{id}}.webp" alt="" class="menu-item__img">
                         <p class="menu-item__name">{{aliment["libelle"]}}</p>
                         <p class="menu-item__price">{{aliment["prix"]}}€</p>
                     </div>
