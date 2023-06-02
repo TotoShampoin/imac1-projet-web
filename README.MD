@@ -14,5 +14,9 @@
 ## Lancer le site
 
 ```bash
+# si c'est la première fois, ou pour réinitialiser la base de données
+python3 reset.py
+
+# pour lancer le site
 python3 app.py
 ```
